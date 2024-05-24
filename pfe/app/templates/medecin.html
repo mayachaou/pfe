@@ -1,0 +1,191 @@
+ 
+ <!DOCTYPE html>
+ {% load static %}
+ <html lang="fr">
+ <head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Tableau de bord de l'administrateur</title>
+     <link rel="stylesheet" href="{% static 'style5.css' %}">
+ </head>
+ <body>
+ <div class="header">
+     <p> Medecin EPRESCRIBER </p>
+     <button class="deconnexion">Déconnexion</button>
+ </div>
+ <div class="container">
+     <a >
+         <div class="box">
+             <a href="consultation.html">Mon profil</a>
+         </div>
+     </a>
+     <a >
+         <div class="box">
+             <a href="commande.html">Messagerie</a>
+         </div>
+     </a>
+     <a >
+         <div class="box">
+             <a href="commande.html">Historiques</a>
+         </div>
+     </a>
+ </div> 
+ <section class="tache">
+     <a >
+         <div class="rectangle" id="ouvrirModal">
+             <p>Etablir une ordonnance</p>
+         </div>
+     </a>
+ 
+     <!-- La fenêtre modale -->
+     <div id="modal" class="modal">
+         <div class="modal-content">
+             <span class="close" id="fermerModal">&times;</span>
+             <div class="ordonnance">
+                 <h2>Ordonnance</h2>
+                 <div class="formulaire">
+               
+                      
+                         
+                         <div class="ligne">
+                             <label for="id_medecin">ID Médecin:</label>
+                             <input type="text" id="id_medecin" name="id_medecin">
+                             <label for="id_patient">ID Patient:</label>
+                             <input type="text" id="id_patient" name="id_patient">
+                         </div><br>
+                         <div class="ligne">
+                             <label for="prenom">Nom:</label>
+                             <input type="text" id="nom-patient" name="nom_patient" placeholder="Nom du patient">
+                             <label for="age">Âge:</label>
+                             <input type="text" id="age-patient" name="age_patient" placeholder="Âge du patient">
+                             <label for="sexe">Sexe:</label>
+                             <select id="sexe-patient" name="sexe_patient">
+                                 <option value="feminin">Féminin</option>
+                                 <option value="masculin">Masculin</option>
+                             </select>
+                             <br>
+                         </div>
+                         <br><br><br><br><br>
+                         <div class="ligne">
+                             <input type="text" placeholder="Prescription " name="prescription1">
+                             <input type="text" placeholder="Description" name="description1">
+                         </div>
+                         <br>
+                         <div class="ligne">
+                             <input type="text" placeholder="Prescription " name="prescription2">
+                             <input type="text" placeholder="Description" name="description2">
+                         </div>
+                         <br>
+                         <div class="lignee">
+                             <br><br>
+                             <input type="text" placeholder="Prescription " name="prescription3">
+                             <input type="text" placeholder="Description" name="description3">
+                             <br><br>
+                         </div>
+                         <br>
+                         <br><br><br>
+                         <div class="ajouter-champ">+</div>
+ 
+                         <input type="submit" value="Valider" id="valider-ordonnance">
+                      
+                 </div>
+             </div>
+         </div>
+     </div>
+    </section>
+    <div id="messageConfirmation"></div>
+
+    <section class="margin">
+    <div class="max">
+     <table  class="tableau" id="patient-table">
+
+        <input type="text" id="myInput" onkeyup="filterTable()" placeholder="Rechercher...">
+         <thead> 
+         <tr>
+       
+             <th>Patient</th>
+             <th>Sexe</th>
+             <th>Âge</th>
+             <th>Id</th>
+             <th>Détails</th>
+       
+          </tr>
+         </thead>
+         
+         <tbody > 
+
+         <!-- Les lignes des patients seront ajoutées ici dynamiquement -->
+         </tbody>
+        
+     </table>
+    </div>
+    </div>
+    </section>
+    <section class="graphique">
+
+        <img class="img1" src="/static/graphe1.png"  alt="Répartition par sexe">
+    
+        <!-- Inclure le graphique de répartition par tranche d'âge -->
+        
+        <img  class="img2"src="/static/graphe2.png"  alt="Répartition par tranche d'âge">
+        
+    </section>
+  
+     <script>
+ 
+ 
+         document.addEventListener('DOMContentLoaded', function() {
+             // Ouvrir la fenêtre modale lorsque le rectangle est cliqué
+             document.getElementById('ouvrirModal').addEventListener('click', function() {
+                 document.getElementById('modal').style.display = 'block';
+             });
+ 
+             // Fermer la fenêtre modale lorsque l'icône de fermeture est cliquée
+             document.getElementById('fermerModal').addEventListener('click', function() {
+                 document.getElementById('modal').style.display = 'none';
+             });
+         });
+ 
+ 
+       
+ 
+ 
+         document.addEventListener('DOMContentLoaded', function() {
+            document.getElementById('valider-ordonnance').addEventListener('click', function() {
+                // Récupérer les valeurs saisies dans le formulaire
+                const idMedecin = document.getElementById('id_medecin').value;
+                const idPatient = document.getElementById('id_patient').value;
+                const nomPatient = document.getElementById('nom-patient').value;
+                const agePatient = document.getElementById('age-patient').value;
+                const sexePatient = document.getElementById('sexe-patient').value;
+        
+                // Créer une nouvelle ligne dans la table avec les valeurs saisies
+                const tableBody = document.querySelector('#patient-table tbody');
+                const newRow = document.createElement('tr');
+                newRow.innerHTML = `
+                    <td>${nomPatient}</td>
+                    <td>${sexePatient}</td>
+                    <td>${agePatient}</td>
+                    <td>${idPatient}</td>
+                    <td><button onclick="afficherDetailsPatient(this)">Détails</button></td>
+                `;
+        
+                // Ajouter la nouvelle ligne à la table
+                tableBody.appendChild(newRow);
+        
+                // Cacher la fenêtre modale
+                document.getElementById('modal').style.display = 'none';
+        
+                // Effacer les valeurs des champs du formulaire
+                document.getElementById('id_medecin').value = '';
+                document.getElementById('id_patient').value = '';
+                document.getElementById('nom-patient').value = '';
+                document.getElementById('age-patient').value = '';
+                document.getElementById('sexe-patient').value = '';
+            });
+        });
+       
+     </script>
+ 
+ </body> 
+ </html>

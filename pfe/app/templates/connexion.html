@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+{% load static %}
+
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="{% static 'styledeconnexion.css' %}">
+    <title>Connexion</title>
+</head>
+<section class="header">
+    <img class="logo" src="/static/lelogo.png" alt="Logo">
+    <nav class="menu">
+        <a href="{% url 'pagedegarde' %}">Acceuil</a>
+        <a  href="{% url 'apropos' %}">A propos de nous</a>
+        <a href="{% url 'contact' %}">Contactez nous</a>
+
+        
+    </nav>
+</section>
+<section class="con">
+
+<body>
+   
+  
+    <div class="container" id="container">
+        <div class="form-container sign-up">
+            <form>
+                <h1>Creer un compte</h1>
+                <div class="social-icons">
+                    <a href="#" class="icon"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="icon"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="icon"><i class="fas fa-envelope"></i></a>
+                </div>
+                <span>Choisissez votre rôle</span>
+               
+                <div class="role-buttons">
+                    <button type="button" value="pharmacie" data-url="{% url 'inscription_pharmacie' %}" onclick="redirectTo(this)">Pharmacie</button>
+                      <button type="button" value="patient" data-url="{% url 'inscription_patient' %}" onclick="redirectTo(this)">Patient</button>
+                     <button type="button" value="medecin" data-url="{% url 'inscription_medecin' %}" onclick="redirectTo(this)">Médecin</button>
+                     <button type="button" value="livreur" data-url="{% url 'inscription_livreur' %}" onclick="redirectTo(this)">Livreur</button>
+                </div>
+               
+                
+            </form>
+        </div>
+        <div class="form-container sign-in">
+            <form>
+                <h1>Connexion</h1>
+                <div class="social-icons">
+                   
+                    <a href="#" class="icon"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="icon"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="icon"><i class="fas fa-envelope"></i></a>
+                    
+                </div>
+                <span>veillez saisir vos informations</span>
+                <input type="email" placeholder="Nom d'utilisateur">
+                <input type="password" placeholder="Mot de passe">
+               
+                <button>Se connecter</button>
+            </form>
+        </div>
+        <div class="toggle-container">
+            <div class="toggle">
+                <div class="toggle-panel toggle-left">
+                    <h1>Vous avez déja un compte ?</h1>
+                    <p>Connectez vous!</p>
+                    <button class="hidden" id="login">Connexion</button>
+                </div>
+                <div class="toggle-panel toggle-right">
+                    <h1>Bienvenue !</h1>
+                    <p>Une premiére? <br>Rejoignez Nous!</p>
+                    <button class="hidden" id="register">S'inscrire</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="/static/script.js"></script>
+   
+        
+   
+</body>
+</section>
+</html>

@@ -1,0 +1,46 @@
+.header {
+    display: flex;
+    background-color: #0d474b;
+    margin: -10px; /* Supprime les marges extérieures */
+    justify-content: center; /* Centre le contenu horizontalement */
+    align-items: center; /* Centre le contenu verticalement */
+}
+.header p {
+    color: whitesmoke;
+    font-weight: bold;
+    font-size: 20px;
+    margin-left: 10px; /* Ajuste l'espacement */
+}
+.deconnexion {
+    background-color: red;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-left: 870px;
+  }
+.container {
+    
+    height: 100vh; /* Prend toute la hauteur de la page */
+    width: 25%; /* Un quart de la largeur */
+    float: left; /* Aligne à gauche */
+   margin-left: -10px;
+    padding: 20px; /* Ajoute un peu d'espacement à l'intérieur */
+}
+
+.box {
+    background-color: #f1f1f1;
+    margin-bottom: 30px; /* Ajoute un espacement entre les boxes */
+    padding: 20px; /* Ajoute un peu d'espacement à l'intérieur */
+    border-radius: 10px;
+}
+.box a{
+    text-decoration: none;
+    font-weight: bold;
+color: #0d474b;
+}
+.imagee{
+    margin-top: -50px;
+    margin-left: -60px;
+}

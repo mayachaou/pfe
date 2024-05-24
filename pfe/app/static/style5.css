@@ -1,0 +1,259 @@
+.header {
+    display: flex;
+    background-color: #0d474b;
+    margin: -10px; /* Supprime les marges extérieures */
+    justify-content: center; /* Centre le contenu horizontalement */
+    align-items: center; /* Centre le contenu verticalement */
+}
+.header p {
+    color: whitesmoke;
+    font-weight: bold;
+    font-size: 20px;
+    margin-left: 10px; /* Ajuste l'espacement */
+    margin-right: 900px;
+    
+  
+}
+.deconnexion {
+  background-color: rgb(204, 39, 39);
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-left: auto;
+  
+}
+.container {
+    margin-top: 20px;
+    height: 100vh; /* Prend toute la hauteur de la page */
+    width: 25%; /* Un quart de la largeur */
+    float: left; /* Aligne à gauche */
+   margin-left: -10px;
+    padding: 20px; /* Ajoute un peu d'espacement à l'intérieur */
+}
+
+.box {
+    background-color: #f1f1f1;
+    margin-bottom: 30px; /* Ajoute un espacement entre les boxes */
+    padding: 20px; /* Ajoute un peu d'espacement à l'intérieur */
+    border-radius: 10px;
+}
+.box a{
+    text-decoration: none;
+    font-weight: bold;
+color: #0d474b;
+}
+.imagee{
+    margin-top: -50px;
+    margin-left: -60px;
+}
+
+.tache {
+    width: 100%; /* Assure que la section prend toute la largeur disponible */
+    text-align: center; /* Centre le contenu horizontalement */
+  }
+  
+  .rectangle {
+    margin-top: 15px;
+    margin-left: 10px;
+    border: 3px solid #0d474b;
+    border-radius: 5%;
+    width: 350px; /* Largeur du rectangle */
+    height: 400x; /* Hauteur du rectangle */
+    background-image: url('/static/OIPPP.jpg'); /* Image de fond */
+    opacity: 0.8;
+    background-size: cover; /* Ajuste la taille de l'image pour couvrir tout le rectangle */
+    display: flex;
+    align-items: center; /* Centre le contenu verticalement */
+    justify-content: center; /* Centre le contenu horizontalement */
+    color: white; /* Couleur du texte */
+    transition: transform 0.3s ease;
+    
+  }
+   a{text-decoration: none;}
+  
+  .rectangle p {
+    text-decoration: none;
+    font-size: 25px; /* Taille du texte */
+    margin-top: 210px;
+    font-weight: bold;
+    color: white;
+    margin-left: 25px;
+   
+  }
+  .rectangle:hover {
+    transform: scale(1.05); /* Zoom léger au survol */
+  }
+  
+
+  /* Styles pour la fenêtre modale */
+.modal {
+    display: none;
+   position: absolute;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+  margin-top: -80px;
+    
+  }
+  
+  .modal-content {
+    background-color: white;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 60%;
+   
+    
+    max-width: 600px;
+    position: relative;
+  }
+  
+  .close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  .ordonnance {
+    background-image: url('/static/Ordonnance.png'); /* Remplacez 'lien_vers_votre_image.jpg' par le chemin de votre image */
+    background-size: cover;
+    border: 2px solid transparent; /* Bordure transparente */
+    border-radius: 10px; /* Arrondi des coins */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Ombre pour effet 3D */
+    padding: 20px;
+  }
+  
+  /* CSS pour le formulaire */
+  .formulaire {
+    display: flex;
+    flex-direction: column;
+  }
+  
+
+  .formulaire input[type="text"] {
+    border: none; /* Supprime la bordure */
+    border-bottom: 1px dotted black; /* Ajoute des pointillés en bas */
+    outline: none; /* Supprime la bordure de focus */
+    background-color: transparent; /* Rend l'arrière-plan transparent */
+  }
+  
+  .formulaire input[type="text"]:focus {
+    border-bottom: 1px solid black; /* Ajoute une bordure solide en bas lorsqu'ils sont en focus */
+  }
+  .formulaire label {
+    font-weight: bold;
+  }
+  
+  .formulaire .ligne {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .formulaire .lignee {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .formulaire .ligne input {
+    flex: 1;
+    margin-left: 10px;
+  }
+  
+  .formulaire .lignee input {
+    flex: 1;
+    margin-left: 10px;
+  }
+  
+  .formulaire .trait {
+    border-top: 1px solid #ccc;
+    margin: 20px 0;
+  }
+  .formulaire input[type="submit"]:focus {
+    background-color:rgb(56, 155, 47); ; /* Ajoute une bordure solide en bas lorsqu'ils sont en focus */
+    border-radius: 3px;
+    color: white;
+    font-weight: bold;
+  }
+  .formulaire .ajouter-champ {
+    text-align: center;
+    cursor: pointer;
+    font-size: 30px;
+    font-weight: bold;
+    color: #0d474b;
+  }
+.table-container {
+    float: right; /* Faire flotter le conteneur à droite */
+    margin-left: 100px; /* Ajouter une marge à gauche pour l'espacement */
+   
+    padding: 40px; /* Espace intérieur du conteneur */
+   
+}
+
+.tableau {
+    width: 100%; /* Pour s'assurer que le tableau occupe toute la largeur du conteneur */
+     /* Pour fusionner les bordures de cellule */
+    border: 3px solid #0d474b;
+    border-radius: 5%;
+  opacity: 0.8;
+ 
+}
+.margin{
+  
+  margin-left:770px;
+  margin-top: -275px;
+
+
+}
+ .max{
+  overflow-x: auto; /* Ajoute le défilement horizontal lorsque nécessaire */
+  
+  max-height: 320px;
+}
+th {
+  color: black;
+  font-weight: bold;
+  margin-left: -10px;
+}
+
+tbody{
+  margin-left: 25px;
+}
+.margin button {
+  border-radius: 5%;
+  background-color:#0d474b;
+  width: 100%;
+  color: #f1f1f1;
+  font-weight: bold;}
+  tbody td, tbody th {
+    color: black;
+   
+    font-size: large;
+   
+}
+.graphique{
+
+  margin-top:230px;
+  margin-right: 60px;
+}
+ .img1{
+  width: 29%;
+  margin-left: -400px;
+ 
+ 
+}
+.img2{
+  width: 30%;
+ 
+}
